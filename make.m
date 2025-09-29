@@ -12,6 +12,11 @@ function make(rebuild)
     
     options = '';
     options = [options ' -L"' projectDir '" -lglfw3'];
+
+    if isunix
+        options = '';
+        options = [options ' -L"' projectDir '" -lglfw'];
+    end
     
     if ismac
         options = [options ' LDFLAGS="\$LDFLAGS -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo"'];
